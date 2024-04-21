@@ -183,10 +183,10 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <AlertDialog open={showModal} onOpenChange={setShowModal} >
+      <AlertDialog open={showModal} onOpenChange={setShowModal}  >
         {showDeleteModal ? <AlertDialogContent>Do you want to delete this event?
-          <Button onClick={() => setShowDeleteModal(false)}>Cancel</Button>
           <Button onClick={() => handleDelete()}>Delete</Button>
+          <Button onClick={() => {setShowModal(false); setShowDeleteModal(false)}}>Cancel</Button>
         </AlertDialogContent> : <AlertDialogContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -206,7 +206,13 @@ export default function Home() {
                   </FormItem>
                 )}
               />
+              <div className="flex justify-between">
+
+              <Button onClick={(e) =>{
+                e.preventDefault()
+                setShowModal(false)}}>Cancel</Button>
               <Button type="submit">Submit</Button>
+              </div>
             </form>
           </Form>
         </AlertDialogContent>}
