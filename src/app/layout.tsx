@@ -16,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <nav className="flex justify-between mb-12 border-b border-slate-300 p-4">
+          <h1 className="font-bold text-lg text-slate-800">Calender</h1>
+        </nav>
+        {children}
+      </body>
     </html>
   );
 }
